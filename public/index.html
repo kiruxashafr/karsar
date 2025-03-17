@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAR-SAR - Строительные материалы</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <app-header @toggle-menu="toggleMenu"></app-header>
+        <mobile-menu :is-open="menuOpen"></mobile-menu>
+        <main>
+            <section class="hero">
+                <video autoplay loop muted>
+                    <source src="assets/video.mp4" type="video/mp4">
+                </video>
+                <div class="hero-content">
+                    <h1>Собственное<br>производство</h1>
+                    <p>Производим широкий ассортимент строительных материалов для благоустройства территорий с 2004 года</p>
+                    <button class="catalog-btn">Каталог</button>
+                </div>
+            </section>
+            <section class="categories">
+                <div class="category">
+                    <img src="assets/category1.jpg" alt="Категория 1">
+                    <p>Категория 1</p>
+                </div>
+                <div class="category">
+                    <img src="assets/category2.jpg" alt="Категория 2">
+                    <p>Категория 2</p>
+                </div>
+                <!-- Добавьте больше категорий по мере необходимости -->
+            </section>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
