@@ -3,38 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAR-SAR - Строительные материалы</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>KAR-SAR</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div id="app">
-        <app-header @toggle-menu="toggleMenu"></app-header>
-        <mobile-menu :is-open="menuOpen"></mobile-menu>
-        <main>
-            <section class="hero">
-                <video autoplay loop muted>
-                    <source src="assets/video.mp4" type="video/mp4">
-                </video>
-                <div class="hero-content">
-                    <h1>Собственное<br>производство</h1>
-                    <p>Производим широкий ассортимент строительных материалов для благоустройства территорий с 2004 года</p>
-                    <button class="catalog-btn">Каталог</button>
-                </div>
-            </section>
-            <section class="categories">
-                <div class="category">
-                    <img src="assets/category1.jpg" alt="Категория 1">
-                    <p>Категория 1</p>
-                </div>
-                <div class="category">
-                    <img src="assets/category2.jpg" alt="Категория 2">
-                    <p>Категория 2</p>
-                </div>
-                <!-- Добавьте больше категорий по мере необходимости -->
-            </section>
-        </main>
+    <!-- Header -->
+    <header id="header" class="visible"> <!-- Добавлен класс visible по умолчанию -->
+        <nav>
+            <a href="#" class="logo-link">
+                <img src="images/logo.jpg" alt="Логотип" class="logo">
+                <span class="site-name">KAR-SAR</span>
+            </a>
+            <div class="nav-links">
+                <a href="#">Каталог</a>
+                <a href="#">О нас</a>
+                <a href="#">Покупателю</a>
+                <a href="#">Контакты</a>
+                <a href="tel:+79255355278">+7 (925) 535-52-78</a>
+            </div>
+            <div class="mobile-menu-icon" id="mobileMenuIcon">
+                <span>☰</span>
+            </div>
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="tel:+79255355278">+7 (925) 535-52-78</a>
+                <a href="#">Каталог</a>
+                <a href="#">О нас</a>
+                <a href="#">Покупателю</a>
+                <a href="#">Контакты</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <video class="video-background" autoplay muted loop>
+            <source src="images/video.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>Собственное производство</h1>
+                <p>Производим широкий ассортимент строительных материалов для благоустройства территорий с 2004 года</p>
+                <button>Каталог</button>
+            </div>
+        </div>
+        <div class="product-section">
+            <h2>Наша продукция</h2>
+            <div class="categories">
+                <div class="category">Категория 1</div>
+                <div class="category">Категория 2</div>
+                <div class="category">Категория 3</div>
+            </div>
+        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script src="js/script.js"></script>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

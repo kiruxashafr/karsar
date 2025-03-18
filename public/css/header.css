@@ -1,0 +1,247 @@
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    height: 70px; /* Высота header */
+}
+
+header.visible {
+    top: 0;
+}
+
+header.scrolled {
+    background-color: white;
+    top: -70px; /* Скрываем header при прокрутке вниз */
+}
+
+header:hover {
+    background-color: white;
+}
+
+header.scrolled a,
+header.scrolled .logo-link .site-name,
+header:hover a,
+header:hover .logo-link .site-name {
+    color: black;
+}
+
+/* Остальные стили остаются без изменений */
+
+/* Остальные стили остаются без изменений */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.site-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    font-family: Montserrat;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    margin: 0 20px;
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 16px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a[href^="tel"] {
+    font-weight: 700;
+}
+
+.nav-links a:not([href^="tel"]):hover {
+    color: black;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: rgb(77, 107, 254);
+    border-radius: 2px;
+    transition: width 0.3s ease, left 0.3s ease, transform 0.3s ease;
+    transform: translateX(-50%) scaleX(0);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+    transform: translateX(0) scaleX(1);
+}
+
+.nav-links a[href^="tel"]:hover {
+    text-decoration: none;
+}
+
+.nav-links a[href^="tel"]::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: rgb(77, 107, 254);
+    border-radius: 2px;
+    transition: width 0.3s ease, left 0.3s ease, transform 0.3s ease;
+    transform: translateX(-50%) scaleX(0);
+}
+
+.nav-links a[href^="tel"]:hover::after {
+    width: 100%;
+    left: 0;
+    transform: translateX(0) scaleX(1);
+}
+
+.mobile-menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+    margin-right: 20px;
+    padding: 5px;
+    position: relative;
+    z-index: 1200;
+    transition: color 0.3s ease;
+}
+
+header.scrolled .mobile-menu-icon,
+header:hover .mobile-menu-icon {
+    color: black;
+}
+
+.mobile-menu-icon.open {
+    color: black;
+}
+
+.mobile-menu {
+    display: block; /* Изменено с none на block */
+    position: fixed;
+    top: 0;
+    right: -100%; /* Начальное положение за пределами экрана */
+    width: 80%;
+    max-width: 300px;
+    height: 100%;
+    background-color: white;
+    padding-top: 70px;
+    z-index: 1100;
+    box-sizing: border-box;
+    transition: right 0.3s ease; /* Добавлено для плавной анимации */
+    opacity: 0; /* Начальная прозрачность */
+}
+
+.mobile-menu.open {
+    right: 0; /* Конечное положение */
+    opacity: 1; /* Полная видимость */
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 15px 20px;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: Montserrat;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .site-name {
+        font-size: 18px;
+    }
+
+    .logo {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 300px) {
+    .mobile-menu {
+        width: 100%;
+        max-width: none;
+    }
+
+    .site-name {
+        font-size: 16px;
+    }
+
+    .logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .mobile-menu-icon {
+        font-size: 25px;
+        margin-right: 15px;
+    }
+}
+
+@media (max-width: 200px) {
+    .mobile-menu {
+        width: 100%;
+        padding-top: 60px;
+    }
+
+    .mobile-menu a {
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+
+    .site-name {
+        font-size: 14px;
+    }
+
+    .logo {
+        width: 25px;
+        height: 25px;
+    }
+
+    .mobile-menu-icon {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+}
