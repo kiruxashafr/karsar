@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KAR-SAR</title>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <!-- Header -->
-    <header id="header" class="visible"> <!-- Добавлен класс visible по умолчанию -->
+    <header id="header" class="visible">
         <nav>
             <a href="#" class="logo-link">
-                <img src="images/logo.jpg" alt="Логотип" class="logo">
+                <picture>
+                    <source srcset="images/logo.webp" type="image/webp">
+                    <img src="images/logo.jpg" alt="Логотип" class="logo">
+                </picture>
                 <span class="site-name">KAR-SAR</span>
             </a>
             <div class="nav-links">
@@ -22,8 +27,16 @@
                 <a href="#">Контакты</a>
                 <a href="tel:+79255355278">+7 (925) 535-52-78</a>
             </div>
-            <div class="mobile-menu-icon" id="mobileMenuIcon">
-                <span>☰</span>
+            <div class="mobile-header-right">
+                <a href="tel:+79255355278" class="phone-button">
+                    <picture>
+                        <source srcset="images/phone.webp" type="image/webp">
+                        <img src="images/phone.png" alt="Phone Icon" class="phone-icon">
+                    </picture>
+                </a>
+                <div class="mobile-menu-icon" id="mobileMenuIcon">
+                    <span>☰</span>
+                </div>
             </div>
             <div class="mobile-menu" id="mobileMenu">
                 <a href="tel:+79255355278">+7 (925) 535-52-78</a>
@@ -35,9 +48,12 @@
         </nav>
     </header>
 
+    <div class="overlay" id="overlay"></div>
+
     <div class="main-container">
-        <video class="video-background" autoplay muted loop>
-            <source src="images/video.mp4" type="video/mp4">
+        <video class="video-background" autoplay muted loop preload="auto">
+            <source src="images/video-optimized.webm" type="video/webm">
+            <source src="images/video-optimized.mp4" type="video/mp4">
             Ваш браузер не поддерживает видео.
         </video>
         <div class="hero-section">
@@ -50,13 +66,67 @@
         <div class="product-section">
             <h2>Наша продукция</h2>
             <div class="categories">
-                <div class="category">Категория 1</div>
-                <div class="category">Категория 2</div>
-                <div class="category">Категория 3</div>
+                <div class="category category-1">
+                    <picture>
+                        <source srcset="images/plitka.webp" type="image/webp">
+                        <img src="images/plitka.png" alt="Paving Tiles" class="category-image category-image-1" loading="lazy">
+                    </picture>
+                    <span>Тротуарная плитка</span>
+                </div>
+                <div class="category category-2">
+                    <picture>
+                        <source srcset="images/bordur.webp" type="image/webp">
+                        <img src="images/bordur.png" alt="Drainage" class="category-image category-image-2" loading="lazy">
+                    </picture>
+                    <span>Бордюры</span>
+                </div>
+                <div class="category category-3">
+                    <picture>
+                        <source srcset="images/block.webp" type="image/webp">
+                        <img src="images/block.png" alt="Foundation Blocks" class="category-image category-image-3" loading="lazy">
+                    </picture>
+                    <span>Стеновые блоки</span>
+                </div>
+                <div class="category category-4">
+                    <picture>
+                        <source srcset="images/stupen.webp" type="image/webp">
+                        <img src="images/stupen.png" alt="Curbs" class="category-image category-image-4" loading="lazy">
+                    </picture>
+                    <span>Ступени</span>
+                </div>
+                <div class="category category-5">
+                    <picture>
+                        <source srcset="images/brusch.webp" type="image/webp">
+                        <img src="images/brusch.png" alt="Discounts" class="category-image category-image-5" loading="lazy">
+                    </picture>
+                    <span>Брусчатка</span>
+                </div>
+                <div class="category category-6">
+                    <picture>
+                        <source srcset="images/stroy.webp" type="image/webp">
+                        <img src="images/stroy.png" alt="Road Slabs" class="category-image category-image-6" loading="lazy">
+                    </picture>
+                    <span>Строительные услуги</span>
+                </div>
+                <div class="category category-7">
+                    <picture>
+                        <source srcset="images/materiali.webp" type="image/webp">
+                        <img src="images/materiali.png" alt="Construction Blocks" class="category-image category-image-7" loading="lazy">
+                    </picture>
+                    <span>Строительные материалы</span>
+                </div>
+                <div class="category category-8">
+                    <picture>
+                        <source srcset="images/akcii.webp" type="image/webp">
+                        <img src="images/akcii.png" alt="Piles" class="category-image category-image-8" loading="lazy">
+                    </picture>
+                    <span>Акции</span>
+                </div>
             </div>
         </div>
     </div>
 
     <script src="js/main.js"></script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'923f2f1b4deb4978',t:'MTc0MjU3ODI5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>

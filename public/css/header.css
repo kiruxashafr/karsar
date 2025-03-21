@@ -5,21 +5,17 @@ header {
     background-color: transparent;
     transition: all 0.3s ease;
     z-index: 1000;
-    height: 70px; /* Высота header */
+    height: 70px;
 }
 
-header.visible {
-    top: 0;
-}
-
+header.visible { top: 0; }
 header.scrolled {
     background-color: white;
-    top: -70px; /* Скрываем header при прокрутке вниз */
+    top: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-header:hover {
-    background-color: white;
-}
+header.hidden { top: -70px; }
+header:hover { background-color: white; }
 
 header.scrolled a,
 header.scrolled .logo-link .site-name,
@@ -28,9 +24,51 @@ header:hover .logo-link .site-name {
     color: black;
 }
 
-/* Остальные стили остаются без изменений */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
 
-/* Остальные стили остаются без изменений */
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.phone-button {
+    display: none;
+    width: 35px;
+    height: 35px;
+    background-color: rgba(0, 0, 128, 1);
+    border-radius: 50%;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 35px;
+    text-decoration: none;
+    position: relative;
+}
+
+.phone-button .phone-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -54,10 +92,9 @@ nav {
 }
 
 .site-name {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 18px; /* Уменьшено с 20px */
+    font-weight: 700;
     color: white;
-    font-family: Montserrat;
 }
 
 .nav-links {
@@ -69,10 +106,9 @@ nav {
 .nav-links a {
     text-decoration: none;
     color: white;
-    margin: 0 20px;
-    font-family: Montserrat;
+    margin: 0 15px; /* Уменьшено с 20px */
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px; /* Уменьшено с 16px */
     position: relative;
     display: inline-block;
     padding-bottom: 5px;
@@ -83,9 +119,7 @@ nav {
     font-weight: 700;
 }
 
-.nav-links a:not([href^="tel"]):hover {
-    color: black;
-}
+.nav-links a:not([href^="tel"]):hover { color: black; }
 
 .nav-links a::after {
     content: '';
@@ -94,7 +128,7 @@ nav {
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: rgb(77, 107, 254);
+    background-color: rgba(0, 0, 128, 1);
     border-radius: 2px;
     transition: width 0.3s ease, left 0.3s ease, transform 0.3s ease;
     transform: translateX(-50%) scaleX(0);
@@ -106,39 +140,17 @@ nav {
     transform: translateX(0) scaleX(1);
 }
 
-.nav-links a[href^="tel"]:hover {
-    text-decoration: none;
-}
-
-.nav-links a[href^="tel"]::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: rgb(77, 107, 254);
-    border-radius: 2px;
-    transition: width 0.3s ease, left 0.3s ease, transform 0.3s ease;
-    transform: translateX(-50%) scaleX(0);
-}
-
-.nav-links a[href^="tel"]:hover::after {
-    width: 100%;
-    left: 0;
-    transform: translateX(0) scaleX(1);
-}
-
 .mobile-menu-icon {
     display: none;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 32px; /* Уменьшено с 36px */
     color: white;
-    margin-right: 20px;
+    margin-right: 15px; /* Уменьшено с 20px */
     padding: 5px;
     position: relative;
     z-index: 1200;
     transition: color 0.3s ease;
+    line-height: 30px; /* Уменьшено с 35px */
 }
 
 header.scrolled .mobile-menu-icon,
@@ -146,15 +158,13 @@ header:hover .mobile-menu-icon {
     color: black;
 }
 
-.mobile-menu-icon.open {
-    color: black;
-}
+.mobile-menu-icon.open { color: black; }
 
 .mobile-menu {
-    display: block; /* Изменено с none на block */
+    display: block;
     position: fixed;
     top: 0;
-    right: -100%; /* Начальное положение за пределами экрана */
+    right: -100%;
     width: 80%;
     max-width: 300px;
     height: 100%;
@@ -162,86 +172,71 @@ header:hover .mobile-menu-icon {
     padding-top: 70px;
     z-index: 1100;
     box-sizing: border-box;
-    transition: right 0.3s ease; /* Добавлено для плавной анимации */
-    opacity: 0; /* Начальная прозрачность */
+    transition: right 0.3s ease;
+    opacity: 0;
 }
 
 .mobile-menu.open {
-    right: 0; /* Конечное положение */
-    opacity: 1; /* Полная видимость */
+    right: 0;
+    opacity: 1;
 }
 
 .mobile-menu a {
     display: block;
-    padding: 15px 20px;
+    padding: 12px 20px; /* Уменьшено с 15px */
     color: black;
     text-decoration: none;
-    font-size: 18px;
-    font-family: Montserrat;
+    font-size: 16px; /* Уменьшено с 18px */
 }
 
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .mobile-menu-icon {
-        display: block;
-    }
-
-    .site-name {
-        font-size: 18px;
-    }
-
-    .logo {
-        width: 35px;
-        height: 35px;
-    }
+    .nav-links { display: none; }
+    .mobile-menu-icon { display: block; }
+    .phone-button { display: block; }
+    .site-name { font-size: 16px; } /* Уменьшено с 18px */
+    .logo { width: 35px; height: 35px; }
 }
 
 @media (max-width: 300px) {
-    .mobile-menu {
-        width: 100%;
-        max-width: none;
+    .mobile-menu { width: 100%; max-width: none; }
+    .site-name { font-size: 14px; } /* Уменьшено с 16px */
+    .logo { width: 30px; height: 30px; }
+    .mobile-menu-icon {
+        font-size: 28px; /* Уменьшено с 30px */
+        margin-right: 10px; /* Уменьшено с 15px */
+        line-height: 25px; /* Уменьшено с 30px */
     }
-
-    .site-name {
-        font-size: 16px;
-    }
-
-    .logo {
+    .phone-button {
         width: 30px;
         height: 30px;
+        line-height: 30px;
     }
-
-    .mobile-menu-icon {
-        font-size: 25px;
-        margin-right: 15px;
+    .phone-button .phone-icon {
+        width: 18px;
+        height: 18px;
     }
 }
 
 @media (max-width: 200px) {
-    .mobile-menu {
-        width: 100%;
-        padding-top: 60px;
-    }
-
+    .mobile-menu { padding-top: 60px; }
     .mobile-menu a {
-        font-size: 16px;
-        padding: 12px 15px;
+        font-size: 14px; /* Уменьшено с 16px */
+        padding: 10px 15px; /* Уменьшено с 12px */
     }
-
-    .site-name {
-        font-size: 14px;
+    .site-name { font-size: 12px; } /* Уменьшено с 14px */
+    .logo { width: 25px; height: 25px; }
+    .mobile-menu-icon {
+        font-size: 24px;
+        margin-right: 8px; /* Уменьшено с 10px */
+        line-height: 20px; /* Уменьшено с 25px */
     }
-
-    .logo {
+    .phone-button {
         width: 25px;
         height: 25px;
+        line-height: 25px;
     }
-
-    .mobile-menu-icon {
-        font-size: 20px;
-        margin-right: 10px;
+    .phone-button .phone-icon {
+        width: 16px;
+        height: 16px;
     }
 }

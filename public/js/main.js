@@ -1,25 +1,27 @@
 const mobileMenuIcon = document.getElementById('mobileMenuIcon');
 const mobileMenu = document.getElementById('mobileMenu');
 const header = document.getElementById('header');
+const overlay = document.getElementById('overlay');
 
 let isAnimating = false;
 let lastScroll = 0;
 
 // Функция для открытия/закрытия мобильного меню
 function toggleMobileMenu() {
-    if (isAnimating) return; // Предотвращаем множественные клики во время анимации
+    if (isAnimating) return;
     isAnimating = true;
 
     const isOpen = mobileMenu.classList.contains('open');
     if (!isOpen) {
         mobileMenu.classList.add('open');
         mobileMenuIcon.innerHTML = '✕';
+        overlay.classList.add('active'); // Показываем затемнение
     } else {
         mobileMenu.classList.remove('open');
         mobileMenuIcon.innerHTML = '☰';
+        overlay.classList.remove('active'); // Убираем затемнение
     }
 
-    // Завершаем анимацию через 300 мс (время анимации)
     setTimeout(() => {
         isAnimating = false;
     }, 300);
@@ -32,8 +34,8 @@ function closeMenuOnClickOutside(e) {
         isAnimating = true;
         mobileMenu.classList.remove('open');
         mobileMenuIcon.innerHTML = '☰';
+        overlay.classList.remove('active'); // Убираем затемнение
 
-        // Завершаем анимацию через 300 мс
         setTimeout(() => {
             isAnimating = false;
         }, 300);
@@ -56,8 +58,8 @@ function handleTouchEnd(e) {
         isAnimating = true;
         mobileMenu.classList.remove('open');
         mobileMenuIcon.innerHTML = '☰';
+        overlay.classList.remove('active'); // Убираем затемнение
 
-        // Завершаем анимацию через 300 мс
         setTimeout(() => {
             isAnimating = false;
         }, 300);
@@ -67,21 +69,23 @@ function handleTouchEnd(e) {
 // Обработка прокрутки для header
 function handleScroll() {
     const currentScroll = window.scrollY;
+    const heroSection = document.querySelector('.hero-section');
+    const heroSectionHeight = heroSection.offsetHeight;
 
-    if (currentScroll <= 0) {
-        // В самом верху страницы header прозрачный
-        header.classList.remove('scrolled');
-        header.classList.add('visible');
-        return;
-    }
-
-    if (currentScroll > lastScroll) {
-        // Прокрутка вниз — скрываем header
-        header.classList.remove('visible');
+    if (currentScroll >= heroSectionHeight) {
         header.classList.add('scrolled');
     } else {
-        // Прокрутка вверх — показываем header
         header.classList.remove('scrolled');
+    }
+
+    if (currentScroll <= 0) {
+        header.classList.remove('hidden');
+        header.classList.add('visible');
+    } else if (currentScroll > lastScroll) {
+        header.classList.remove('visible');
+        header.classList.add('hidden');
+    } else if (currentScroll < lastScroll) {
+        header.classList.remove('hidden');
         header.classList.add('visible');
     }
 
@@ -90,19 +94,11 @@ function handleScroll() {
 
 // Инициализация всех обработчиков событий
 function initEventListeners() {
-    // Открытие/закрытие мобильного меню
     mobileMenuIcon.addEventListener('click', toggleMobileMenu);
-
-    // Закрытие меню при клике вне его области
     document.addEventListener('click', closeMenuOnClickOutside);
-
-    // Закрытие меню при свайпе вправо
     document.addEventListener('touchstart', handleTouchStart, { passive: true });
     document.addEventListener('touchend', handleTouchEnd, { passive: true });
-
-    // Обработка прокрутки для header
     window.addEventListener('scroll', handleScroll);
 }
 
-// Запуск инициализации
 initEventListeners();
