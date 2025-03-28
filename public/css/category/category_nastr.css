@@ -1,0 +1,82 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+    width: 100%;
+    box-sizing: border-box; /* Убедимся, что отступы учитываются корректно */
+}
+
+div.product-section {
+    max-width: 100%; /* Ограничиваем ширину секции */
+    overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+    margin-right: 20px !important; /* Устанавливаем правый отступ */
+    box-sizing: border-box; /* Убедимся, что отступы учитываются корректно */
+}
+
+div.categories {
+    max-width: 100%; /* Ограничиваем ширину категорий */
+    overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+    margin: 20px auto !important; /* Устанавливаем правый отступ */
+    box-sizing: border-box; /* Убедимся, что отступы учитываются корректно */
+}
+
+.map-container {
+    margin-top: 20px !important; /* Добавляем отступ сверху для карты */
+    margin-right: 20px !important; /* Добавляем отступ справа для карты */
+}
+
+.footer-right {
+    padding-right: 20px !important; /* Добавляем отступ справа для карты */
+}
+
+@media (min-width: 768px) {
+    div.product-section {
+        margin-right: 20px !important; /* Сохраняем правый отступ для десктопа */
+    }
+
+}
+
+@media (max-width: 768px) {
+    div.product-section {
+        margin-right: 15px !important; /* Корректировка для мобильных устройств */
+    }
+    div.categories {
+        margin-right: 15px !important; /* Корректировка для мобильных устройств */
+    }
+    .map-container {
+        width: 90% !important; /* Уменьшаем ширину карты */
+        margin: 0 auto !important; /* Центрируем карту с отступами */
+    }
+}
+
+@media (max-width: 500px) {
+    div.product-section {
+        margin-right: 10px !important; /* Корректировка для меньших экранов */
+        padding-left: 10px !important;
+    }
+    div.categories {
+        margin-right: 10px !important; /* Корректировка для меньших экранов */
+    }
+    .map-container {
+        margin: 0 auto !important; /* Центрируем карту с отступами */
+    }
+    .footer-right {
+        padding-right: 0px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    div.product-section {
+        margin-right: 5px !important; /* Сохраняем правый отступ */
+        padding-right: 5px !important;
+    }
+    div.categories {
+        margin-right: 5px !important; /* Сохраняем правый отступ */
+    }
+    .map-container {
+        margin: 0 auto !important; /* Центрируем карту с отступами */
+    }
+    .footer-right {
+        padding-right: 0px !important;
+    }
+}

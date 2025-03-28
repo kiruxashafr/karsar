@@ -1,0 +1,266 @@
+.product-section {
+    background-color: white;
+    padding: 50px 0; /* Убираем боковые отступы из секции */
+    text-align: center;
+    color: black;
+    width: 100%;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, 150px);
+    gap: 20px;
+    width: 100%;
+    margin: 0 5px; /* До 768px: отступ 5px */
+}
+
+.category {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    font-size: 16px;
+    color: black;
+    padding: 15px;
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.category:hover {
+    background-color: rgb(110, 110, 114);
+    color: white;
+}
+
+.category span {
+    margin-bottom: 10px;
+    font-weight: 400;
+    z-index: 1;
+    position: relative;
+}
+
+.category-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.category:hover .category-image {
+    transform: scale(1.1);
+}
+
+/* Индивидуальные настройки для десктопа */
+.category-image-1 { width: 100%; height: 400px; }
+.category-image-2 { width: 90%; height: 120px; }
+.category-image-3 { width: 90%; height: 120px; }
+.category-image-4 { width: 90%; height: 120px; }
+.category-image-5 { width: 100%; height: 120px; }
+.category-image-6 { width: 80%; height: 112px; } /* Уменьшено: было 100% и 140px */
+.category-image-7 { width: 100%; height: 280px; }
+.category-image-8 { width: 80%; height: 120px; }
+
+/* Расположение категорий на десктопе */
+.category-1 { grid-column: 1; grid-row: 1 / 4; font-size: 22px; }
+.category-2 { grid-column: 2; grid-row: 1; font-size: 20px; }
+.category-3 { grid-column: 2; grid-row: 2; font-size: 20px; }
+.category-4 { grid-column: 2; grid-row: 3; font-size: 20px; }
+.category-5 { grid-column: 3; grid-row: 1; font-size: 20px; }
+.category-6 { grid-column: 3; grid-row: 2 / 4; font-size: 16px; }
+.category-7 { grid-column: 4; grid-row: 1 / 3; font-size: 16px; }
+.category-8 { grid-column: 4; grid-row: 3; font-size: 20px; }
+
+@media (min-width: 768px) {
+    .product-section h2 {
+        padding: 0 10px;
+    }
+
+    .product-section {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .categories {
+        width: 1200px; /* Фиксированная ширина 1200px */
+        margin: 0 auto; /* Центрирование */
+    }
+
+    .product-section h2 {
+        padding: 0 0 0 20px; /* Сохраняем отступ слева для заголовка */
+    }
+}
+
+@media (max-width: 768px) {
+    .categories {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(6, 120px);
+        gap: 8px;
+    }
+
+    .product-section {
+        padding-right: 15px;
+        padding-left: 10px;
+        padding-bottom: 100px;
+    }
+
+    .product-section h2 {
+        padding: 0 5px;
+    }
+
+    .category { font-size: 12px; padding: 8px; }
+    .category span { margin-bottom: 5px; }
+    .category-image { height: auto; object-fit: contain; }
+    .category:hover .category-image,
+    .category:active .category-image { transform: scale(1.1); }
+    .category-image-1 { width: 400px; left: -30px; bottom: 0; }
+    .category-image-2 { width: 250px; left: 60px; top: 15px; }
+    .category-image-3 { width: 250px; left: 80px; top: -20px; }
+    .category-image-4 { width: 250px; left: 80px; top: -10px; }
+    .category-image-5 { width: 400px; left: -60px; bottom: -30px; }
+    .category-image-6 { width: 200px; left: 110px; bottom: 0; } /* Уменьшено: было 288px */
+    .category-image-7 { width: 110px; left: 170px; bottom: 5px; }
+    .category-image-8 { width: 250px; left: 110px; bottom: -20px; }
+
+    .category-1 { grid-column: 1; grid-row: 1 / 4; font-size: 16px; }
+    .category-2 { grid-column: 2; grid-row: 1; font-size: 14px; }
+    .category-3 { grid-column: 2; grid-row: 2; font-size: 14px; }
+    .category-4 { grid-column: 2; grid-row: 3; font-size: 14px; }
+    .category-5 { grid-column: 1; grid-row: 4 / 6; font-size: 14px; }
+    .category-6 { grid-column: 1; grid-row: 6; font-size: 12px; }
+    .category-7 { grid-column: 2; grid-row: 4; font-size: 12px; }
+    .category-8 { grid-column: 2; grid-row: 5 / 7; font-size: 14px; }
+}
+
+@media (max-width: 600px) {
+    .categories {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(6, 110px);
+        gap: 8px;
+    }
+
+    .product-section {
+        padding-right: 15px;
+        padding-left: 10px;
+    }
+
+    .product-section h2 {
+        padding: 0 5px;
+    }
+
+    .category { font-size: 11px; padding: 7px; }
+    .category-image-1 { width: 350px; left: -35px; bottom: 15px; }
+    .category-image-2 { width: 200px; left: 50px; top: 15px; }
+    .category-image-3 { width: 200px; left: 80px; top: -10px; }
+    .category-image-4 { width: 200px; left: 80px; top: 5px; }
+    .category-image-5 { width: 350px; left: -35px; bottom: -20px; }
+    .category-image-6 { width: 160px; left: 85px; bottom: 0; } /* Уменьшено: было 288px */
+    .category-image-7 { width: 100px; left: 130px; bottom: 0; }
+    .category-image-8 { width: 250px; left: 70px; bottom: -20px; }
+}
+
+@media (max-width: 500px) {
+    .categories {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(6, 120px);
+        gap: 8px;
+    }
+
+    .product-section {
+        padding-right: 10px;
+        padding-left: 5px;
+    }
+    .product-section h2 {
+        padding: 0 5px;
+    }
+
+    .category-image-1 { width: 300px; left: -50px; bottom: 30px; }
+    .category-image-2 { width: 200px; left: 40px; top: 15px; }
+    .category-image-3 { width: 200px; left: 40px; top: 0px; }
+    .category-image-4 { width: 200px; left: 40px; top: 5px; }
+    .category-image-5 { width: 270px; left: -40px; bottom: 10px; }
+    .category-image-6 { width: 160px; left: 20px; bottom: 0; } /* Уменьшено: было 288px */
+    .category-image-7 { width: 95px; left: 90px; bottom: 5px; }
+    .category-image-8 { width: 200px; left: 60px; bottom: 0; }
+}
+
+@media (max-width: 400px) {
+    .product-section {
+        padding-right: 10px;
+        padding-left: 5px;
+    }
+
+    .categories {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(6, 100px);
+        gap: 8px;
+    }
+
+    .product-section h2 {
+        padding: 0 5px;
+    }
+
+    .category-image-1 { width: 200px; left: -10px; bottom: 40px; }
+    .category-image-2 { width: 150px; left: 60px; top: 20px; }
+    .category-image-3 { width: 150px; left: 50px; top: 5px; }
+    .category-image-4 { width: 150px; left: 30px; top: 20px; }
+    .category-image-5 { width: 200px; left: -25px; bottom: 20px; }
+    .category-image-6 { width: 160px; left: 20px; bottom: 0; } /* Уменьшено: было 288px */
+    .category-image-7 { width: 75px; left: 40px; bottom: 5px; }
+    .category-image-8 { width: 170px; left: 45px; bottom: 0; }
+}
+
+@media (max-width: 300px) {
+    .product-section { padding: 30px 0; }
+    .categories {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(6, 80px);
+        gap: 6px;
+    }
+
+    .product-section {
+        padding-right: 10px;
+        padding-left: 5px;
+    }
+
+    .product-section h2 {
+        padding: 0 5px;
+    }
+
+    .category { font-size: 10px; padding: 6px; }
+    .category-image-1 { width: 150px; left: -5px; bottom: 30px; }
+    .category-image-2 { width: 120px; left: 40px; top: 15px; }
+    .category-image-3 { width: 120px; left: 30px; top: 5px; }
+    .category-image-4 { width: 120px; left: 20px; top: 10px; }
+    .category-image-5 { width: 150px; left: -10px; bottom: 10px; }
+    .category-image-6 { width: 120px; left: 25px; bottom: 0; } /* Уменьшено: было 288px */
+    .category-image-7 { width: 50px; left: 40px; bottom: 5px; }
+    .category-image-8 { width: 120px; left: 30px; bottom: 0; }
+}
+
+@media (min-width: 768px) {
+    .category-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        left: 0;
+        top: 0;
+    }
+
+    .category-image-1 { width: 100%; height: 100%; }
+    .category-image-2 { width: 100%; height: 100%; top: 30px; }
+    .category-image-3 { width: 100%; height: 100%; top: 25px; left: 30px; }
+    .category-image-4 { width: 100%; height: 100%; top: 30px; left: 40px; }
+    .category-image-5 { width: 100%; height: 100%; top: 20px; left: 40px; }
+    .category-image-6 { width: 100%; height: 100%; left: 7px; top: 50px; } /* Уменьшено еще больше */
+    .category-image-7 { width: 90%; height: 85%; left: 10px; top: 50px;}
+    .category-image-8 { width: 80%; height: 80%; left: 50px; top: 30px; }
+}

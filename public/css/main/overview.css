@@ -1,0 +1,249 @@
+.overview-section {
+    background-color: white;
+    padding: 50px 5px 50px 10px;
+    text-align: center;
+    color: black;
+    width: 100%;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 0;
+}
+
+.overview-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.overview-text {
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 20px;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.overview-text h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: rgb(8, 8, 8);
+    font-weight: 700;
+}
+
+.overview-text p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgb(50, 50, 50);
+    font-weight: 400;
+}
+
+.overview-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    padding: 20px;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.overview-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 128, 1);
+    border-radius: 15px;
+    z-index: 0;
+}
+
+.overview-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.overview-section.visible .overview-text,
+.overview-section.visible .overview-image-container {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+@media (min-width: 768px) {
+    .overview-section {
+        padding: 50px 20px;
+        padding-left: 5px;
+    }
+
+    .overview-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .overview-text {
+        flex: 1;
+        max-width: 50%;
+        padding: 0 30px;
+    }
+
+    .overview-image-container {
+        flex: 1;
+        max-width: 50%;
+        height: 400px;
+        padding: 30px;
+    }
+
+    .overview-text h2 {
+        font-size: 40px;
+    }
+
+    .overview-text p {
+        font-size: 18px;
+    }
+
+    .overview-background {
+        bottom: -1px;
+        right: -1px;
+        width: 80%;
+        height: 80%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .overview-container {
+        width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .overview-text h2 {
+        font-size: 26px;
+    }
+
+    .overview-text p {
+        font-size: 14px;
+    }
+
+    .overview-image-container {
+        max-width: 400px;
+        height: 250px;
+        padding: 15px;
+    }
+
+    .overview-background {
+        bottom: -15px;
+        right: -15px;
+        width: 75%;
+        height: 75%;
+    }
+
+    .overview-section {
+        padding-left: 0px;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        margin-bottom: 80px;
+    }
+}
+
+@media (max-width: 440px) {
+    .overview-section {
+        padding: 30px 5px 30px 10px;
+    }
+
+    .overview-text {
+        padding: 0 10px;
+    }
+
+    .overview-text h2 {
+        font-size: 22px;
+    }
+
+    .overview-text p {
+        font-size: 13px;
+    }
+
+    .overview-image-container {
+        max-width: 350px;
+        height: 220px;
+        padding: 15px;
+    }
+
+    .overview-background {
+        bottom: -15px;
+        right: -15px;
+        width: 70%;
+        height: 70%;
+    }
+}
+
+@media (max-width: 400px) {
+    .overview-section {
+        padding: 30px 5px 30px 0px;
+    }
+
+    .overview-text {
+        padding: 0 10px;
+    }
+
+    .overview-text h2 {
+        font-size: 20px;
+    }
+
+    .overview-text p {
+        font-size: 12px;
+    }
+
+    .overview-image-container {
+        max-width: 300px;
+        height: 200px;
+        padding: 10px;
+    }
+
+    .overview-background {
+        bottom: -12px;
+        right: -10px;
+        width: 80%;
+        height: 80%;
+    }
+}
+
+@media (max-width: 325px) {
+    .overview-section {
+        padding: 30px 5px 30px 10px;
+    }
+
+    .overview-text {
+        padding: 0 10px;
+    }
+
+    .overview-text h2 {
+        font-size: 18px;
+    }
+
+    .overview-text p {
+        font-size: 11px;
+    }
+
+    .overview-image-container {
+        max-width: 250px;
+        height: 180px;
+        padding: 10px;
+    }
+
+    .overview-background {
+        bottom: -10px;
+        right: -15px;
+        width: 75%;
+        height: 75%;
+        margin-right: 5px;
+    }
+}

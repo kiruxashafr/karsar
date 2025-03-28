@@ -1,0 +1,82 @@
+.stats-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: white;
+    color: black;
+    width: 100%;
+    margin-bottom: 60px; /* Добавлен отступ снизу */
+}
+
+.stat {
+    text-align: center;
+    margin-bottom: 30px; /* Spacing between stats */
+}
+
+.stat:last-child {
+    margin-bottom: 0; /* Remove margin from the last item */
+}
+
+.stat .less-than {
+    font-size: 48px;
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+.stat .number {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.stat p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .stats-section {
+        padding: 100px 15px;
+        margin-bottom: 80px; /* Увеличен для мобильной версии */
+    }
+    .stat .number, .stat .less-than {
+        font-size: 36px;
+    }
+    .stat p {
+        font-size: 16px;
+    }
+    .stat {
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .stats-section {
+        padding: 30px 10px;
+    }
+    .stat .number, .stat .less-than {
+        font-size: 32px;
+    }
+    .stat p {
+        font-size: 14px;
+    }
+    .stat {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .stats-section {
+        padding: 20px 5px;
+    }
+    .stat .number, .stat .less-than {
+        font-size: 28px;
+    }
+    .stat p {
+        font-size: 12px;
+    }
+    .stat {
+        margin-bottom: 15px;
+    }
+}
